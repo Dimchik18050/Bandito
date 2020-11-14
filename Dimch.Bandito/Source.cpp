@@ -1,20 +1,31 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <Windows.h>
+#include <conio.h>
 
 int main()
 {
+	//Game Settings
 	const int startingMoney = 500;
 	const int turnCost = 50;
 	const int doubleBonus = 60;
 	const int tripleBonus = 100;
 	
+
+	//Logics variables
 	int money = startingMoney;
 	char panel0 = 'X';
 	char panel1 = 'X';
 	char panel2 = 'X';
+
+	//Initialization
+	srand( time( 0 ) );
 	
+	// Main loop
 	do
 	{
+		// Render
 		system("cls");
 
 		printf("\n\n");
@@ -26,10 +37,26 @@ int main()
 		printf("\t#         #\n");
 		printf("\t###########\n");
 		printf("\n");
+		printf("\n");
+		printf("\tMoney: %i$\n", money);
+
+		
+		
+		// Input (Just for pause)
+		_getch();
+
+
+		// Main logics
+		money = money - turnCost;
+
+		panel0 = 3 + ( rand() % 4 );
+		panel1 = 3 + ( rand() % 4 );
+		panel2 = 3 + ( rand() % 4 );
 
 
 	} 
 	while ( money >= turnCost );
 
+	// No errors
 	return 0;
 }
