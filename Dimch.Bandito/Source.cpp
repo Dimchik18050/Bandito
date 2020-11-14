@@ -53,7 +53,19 @@ int main()
 		panel1 = 3 + ( rand() % 4 );
 		panel2 = 3 + ( rand() % 4 );
 
-
+		// Three out of three
+		if ( ( panel0 == panel1 ) && ( panel0 == panel2 ) )
+		{
+			money = money + tripleBonus;
+		}
+		else
+		{
+			//Two out of three
+			if ( ( panel0 == panel1 ) || ( panel1 == panel2 ) || ( panel0 == panel2 ) )
+			{
+				money = money + doubleBonus;
+			}
+		}
 	} 
 	while ( money >= turnCost );
 
